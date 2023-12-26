@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inminutes/ui/widgets/utils/themes.dart';
+import 'package:inminutes/utils/themes.dart';
 import 'package:provider/provider.dart';
 
 class OutlineInput extends StatefulWidget {
@@ -15,6 +15,7 @@ class OutlineInput extends StatefulWidget {
       this.keyboardType,
       this.onTap,
       this.readOnly,
+      this.isCustomer,
       this.obscureText,
       this.suffixWidget,
       this.preffixWidget})
@@ -28,6 +29,7 @@ class OutlineInput extends StatefulWidget {
   bool? obscureText;
   bool? readOnly;
   dynamic onChanged;
+  bool? isCustomer;
 
   Widget? suffixWidget;
   bool? textCenter;
@@ -48,7 +50,9 @@ class _OutlineInputState extends State<OutlineInput> {
       children: [
         Text(
           widget.labelText.toString(),
-          style: lightMode.textTheme.bodyMedium,
+          style: lightMode.textTheme.bodyMedium!.copyWith(
+              fontSize: 13,
+              color: widget.isCustomer != null ? Colors.black : Colors.white),
         ),
         SizedBox(
           height: 10,
@@ -56,7 +60,9 @@ class _OutlineInputState extends State<OutlineInput> {
         TextFormField(
           controller: widget.controller,
 
-          style: lightMode.textTheme.headlineSmall!.copyWith(fontSize: 13),
+          style: lightMode.textTheme.headlineSmall!.copyWith(
+              fontSize: 12,
+              color: widget.isCustomer != null ? Colors.black : Colors.white),
           onTap: widget.onTap,
           onChanged: widget.onChanged,
           keyboardType: widget.keyboardType,
@@ -102,7 +108,7 @@ class _OutlineInputState extends State<OutlineInput> {
             ),
             //   prefix: widget.preffixWidget,
             filled: true,
-            fillColor: Color(0xff262626),
+            fillColor: widget.isCustomer != null ? Colors.white : Color(0xff262626),
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: const BorderRadius.all(Radius.circular(5)),
               borderSide: BorderSide(

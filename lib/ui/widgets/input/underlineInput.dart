@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inminutes/ui/widgets/utils/themes.dart';
+import 'package:inminutes/utils/themes.dart';
 
 class InlineInput extends StatefulWidget {
   InlineInput(

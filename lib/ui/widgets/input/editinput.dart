@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inminutes/ui/widgets/utils/themes.dart';
+import 'package:inminutes/utils/themes.dart';
 import 'package:provider/provider.dart';
 
 class OtherInput extends StatefulWidget {

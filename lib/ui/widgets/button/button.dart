@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:inminutes/ui/widgets/utils/themes.dart';
+import 'package:inminutes/utils/themes.dart';
 
 class MyButton extends StatelessWidget {
-  const MyButton({Key? key, required this.text, this.onPressed, this.height})
+  MyButton(
+      {Key? key,
+      required this.text,
+      this.onPressed,
+      this.height,
+      this.isCustomer})
       : super(key: key);
   final String text;
+  final bool? isCustomer;
 
   final int? height;
 
@@ -17,24 +23,27 @@ class MyButton extends StatelessWidget {
       child: Container(
         height: 45,
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(5)),
+            color: isCustomer == null ? Colors.white : Colors.black,
+            borderRadius: BorderRadius.circular(5)),
         width: MediaQuery.of(context).size.width,
         child: Center(
             child: Text(text,
                 style: lightMode.textTheme.bodySmall!
-                    .copyWith(color: Colors.black))),
+                    .copyWith(color:isCustomer != null ? Colors.white: Colors.black))),
       ),
     );
   }
 }
 
+// Rider app button
+
 class ReUsableButton extends StatelessWidget {
   const ReUsableButton(
-      {Key? key, this.onPressed, this.height, required this.widgets})
+      {Key? key, this.onPressed, this.height, required this.widgets , this.isCustomer})
       : super(key: key);
 
   final int? height;
-
+   final bool? isCustomer;
   final dynamic onPressed;
 
   final Widget widgets;
@@ -46,7 +55,7 @@ class ReUsableButton extends StatelessWidget {
       child: Container(
         height: 45,
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(5)),
+            color: isCustomer == null ? Colors.white : Colors.black, borderRadius: BorderRadius.circular(5)),
         width: MediaQuery.of(context).size.width,
         child: Center(child: widgets),
       ),

@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:inminutes/ui/widgets/utils/themes.dart';
+import 'package:inminutes/utils/themes.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool showBackButton;
   final VoidCallback? onBackButtonPressed;
+  final bool? isCustomer;
 
-  CustomAppBar({
-    required this.title,
-    this.showBackButton = false,
-    this.onBackButtonPressed,
-  });
+  CustomAppBar(
+      {required this.title,
+      this.showBackButton = false,
+      this.onBackButtonPressed,
+      this.isCustomer});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
         title,
-        style: lightMode.textTheme.headlineLarge !.copyWith(fontSize: 26),
+        style: lightMode.textTheme.headlineLarge!.copyWith(
+          fontSize: 26,
+          color: isCustomer == null ? Colors.white : Colors.black,
+        ),
       ),
       centerTitle: true,
-      backgroundColor: lightMode.scaffoldBackgroundColor,
+      backgroundColor: riderTheme.scaffoldBackgroundColor,
       elevation: 0,
       automaticallyImplyLeading: showBackButton,
       leading: showBackButton
@@ -32,7 +36,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   },
                   child: Icon(
                     Icons.arrow_back_ios,
-                    color: Colors.white,
+                    color: isCustomer == null ? Colors.white : Colors.black,
                   )),
               onPressed: onBackButtonPressed,
             )
