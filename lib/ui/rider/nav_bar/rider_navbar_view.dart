@@ -5,6 +5,7 @@ import 'package:inminutes/ui/customer/screens/checkout/checkout_view.dart';
 import 'package:inminutes/ui/customer/screens/home/home_view.dart';
 import 'package:inminutes/ui/customer/screens/profile/profile_view.dart';
 import 'package:inminutes/ui/rider/messages/messages_view.dart';
+import 'package:inminutes/ui/rider/profile/profile_view.dart';
 import 'package:inminutes/ui/rider/rider_homepage/home_page_view.dart';
 import 'package:inminutes/utils/themes.dart';
 
@@ -27,7 +28,7 @@ class _RiderNavbarState extends State<RiderNavbar> with TickerProviderStateMixin
     });
   }
 
-  List<Widget> pages = [RiderHomePageView() , RiderHomePageView() , MessagesView() , ProfileView()];
+  List<Widget> pages = [RiderHomePageView() , RiderHomePageView() , MessagesView() , RiderProfileView()];
 
   @override
   Widget build(BuildContext context) {
