@@ -59,7 +59,7 @@ class _OutlineInputState extends State<OutlineInput> {
         ),
         TextFormField(
           controller: widget.controller,
-
+        
           style: lightMode.textTheme.headlineSmall!.copyWith(
               fontSize: 12,
               color: widget.isCustomer != null ? Colors.black : Colors.white),
@@ -67,7 +67,7 @@ class _OutlineInputState extends State<OutlineInput> {
           onChanged: widget.onChanged,
           keyboardType: widget.keyboardType,
           readOnly: widget.readOnly ?? false,
-
+        
           obscureText: widget.obscureText ?? false,
           maxLines: widget.maxLines ?? 1,
           validator: widget.validator != null
@@ -75,8 +75,8 @@ class _OutlineInputState extends State<OutlineInput> {
               : null,
           decoration: InputDecoration(
             //labelText: widget.labelText,
-
-            prefixIcon: widget.preffixWidget,
+        
+          prefixIcon: widget.preffixWidget,
             suffixIcon: widget.suffixWidget ??
                 SizedBox(
                   child: widget.icon == null
@@ -106,7 +106,7 @@ class _OutlineInputState extends State<OutlineInput> {
                 color: Color.fromARGB(141, 197, 197, 197),
               ),
             ),
-            //   prefix: widget.preffixWidget,
+            //  prefix: widget.preffixWidget,
             filled: true,
             fillColor: widget.isCustomer != null ? Colors.white : Color(0xff262626),
             focusedErrorBorder: OutlineInputBorder(

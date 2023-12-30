@@ -169,7 +169,11 @@ class _RiderHomePageViewState extends State<RiderHomePageView> {
                                             MainAxisAlignment.center,
                                         children: [
                                           //  Icon(Icons.)
-                                          Text('Cashout', style: riderTheme.textTheme.headlineSmall,)
+                                          Text(
+                                            'Cashout',
+                                            style: riderTheme
+                                                .textTheme.headlineSmall,
+                                          )
                                         ],
                                       )),
                                     ),
@@ -184,12 +188,16 @@ class _RiderHomePageViewState extends State<RiderHomePageView> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                           // Icon(Icons)
-                                          Text('Transfer', style: riderTheme.textTheme.headlineSmall,)
+                                          // Icon(Icons)
+                                          Text(
+                                            'Transfer',
+                                            style: riderTheme
+                                                .textTheme.headlineSmall,
+                                          )
                                         ],
                                       )),
                                     ),
-                                      SizedBox(
+                                    SizedBox(
                                       width: 20,
                                     ),
                                     Container(
@@ -200,8 +208,12 @@ class _RiderHomePageViewState extends State<RiderHomePageView> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                           // Icon(Icons)
-                                          Text('save' , style: riderTheme.textTheme.headlineSmall,)
+                                          // Icon(Icons)
+                                          Text(
+                                            'save',
+                                            style: riderTheme
+                                                .textTheme.headlineSmall,
+                                          )
                                         ],
                                       )),
                                     ),
@@ -216,18 +228,45 @@ class _RiderHomePageViewState extends State<RiderHomePageView> {
                     SizedBox(
                       height: 20,
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Incoming Order '),
+                        Text(
+                          '0:15',
+                          style: lightMode.textTheme.headlineSmall!
+                              .copyWith(color: Colors.red),
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(color: Color(0xff008753)),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 5),
+                            child: Text(
+                              'Accept',
+                              style: lightMode.textTheme.headlineSmall,
+                            ),
+                          ),
+                        ), 
 
-
-
-
-
-
-
-
-
-
-
-
+                           Container(
+                          decoration: BoxDecoration(border: Border.all(color: Colors.red)),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 5),
+                            child: Text(
+                              'Decline',
+                              style: lightMode.textTheme.headlineSmall!.copyWith(color: Colors.red),
+                            ),
+                          ),
+                        )
+                      ],
+                    )
                   ],
                 ),
               ),

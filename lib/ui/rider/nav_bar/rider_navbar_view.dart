@@ -5,7 +5,8 @@ import 'package:inminutes/ui/customer/screens/checkout/checkout_view.dart';
 import 'package:inminutes/ui/customer/screens/home/home_view.dart';
 import 'package:inminutes/ui/customer/screens/profile/profile_view.dart';
 import 'package:inminutes/ui/rider/messages/messages_view.dart';
-import 'package:inminutes/ui/rider/profile/profile_view.dart';
+import 'package:inminutes/ui/rider/rider_map/rider_map_view.dart';
+import 'package:inminutes/ui/rider/rider_profile/profile_view.dart';
 import 'package:inminutes/ui/rider/rider_homepage/home_page_view.dart';
 import 'package:inminutes/utils/themes.dart';
 
@@ -28,7 +29,7 @@ class _RiderNavbarState extends State<RiderNavbar> with TickerProviderStateMixin
     });
   }
 
-  List<Widget> pages = [RiderHomePageView() , RiderHomePageView() , MessagesView() , RiderProfileView()];
+  List<Widget> pages = [RiderHomePageView() , MapScreen() , MessagesView() , RiderProfileView()];
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class _RiderNavbarState extends State<RiderNavbar> with TickerProviderStateMixin
           //margin: EdgeInsets.only(left: 10, right: 10 , bottom: 20),
 
           marginR: const EdgeInsets.symmetric(horizontal: 50, vertical: 0),
-          paddingR: const EdgeInsets.only(bottom: 5, top: 2),
+          paddingR: const EdgeInsets.only(bottom: 3, ),
           currentIndex: _SelectedTab.values.indexOf(_selectedTab),
           dotIndicatorColor: Colors.white,
           unselectedItemColor: Colors.grey[500],

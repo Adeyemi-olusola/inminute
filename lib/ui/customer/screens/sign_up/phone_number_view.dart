@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:inminutes/ui/customer/screens/login/login_view.dart';
 import 'package:inminutes/ui/customer/screens/sign_up/otp_view.dart';
+import 'package:inminutes/ui/customer/screens/sign_up/sign_up_service/sign_up_service.dart';
 import 'package:inminutes/ui/customer/screens/sign_up/signup_viewmodel.dart';
 import 'package:inminutes/ui/widgets/appbar/appBar_widget.dart';
 import 'package:inminutes/ui/widgets/button/button.dart';
@@ -53,6 +54,27 @@ class _PhoneNumberViewState extends State<PhoneNumberView> {
                         ),
                         OutlineInput(
                           labelText: 'Phone Number',
+                          preffixWidget: Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Container(
+                              width: 50,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'NG',
+                                    style: lightMode.textTheme.headlineSmall!
+                                        .copyWith(
+                                            fontSize: 16,
+                                            color: Color(0xfffcfdff),
+                                            fontWeight: FontWeight.w300),
+                                  ),
+                                  // Icon(Icons.keyboard_arrow_down_rounded,
+                                  //     color: Colors.white)
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
                         SizedBox(
                           height: 40,
@@ -97,25 +119,29 @@ class _PhoneNumberViewState extends State<PhoneNumberView> {
                           height: 20,
                         ),
 
-                           ReUsableButton(
-                      widgets: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset('assets/svgs/google_logo.svg'),
-                          SizedBox(
-                            width: 10,
+                        ReUsableButton(
+                          onPressed: () {
+                            SignUpService().signInWithGoogle();
+                          },
+                          widgets: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset('assets/svgs/google_logo.svg'),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text('Sign in with Google')
+                            ],
                           ),
-                          Text('Sign in with Google')
-                        ],
-                      ),
-                    ),
+                        ),
 
                         SizedBox(
                           height: 20,
                         ),
                         InkWell(
                           onTap: () {
-                            Get.to(LoginView() , transition: Transition.leftToRight);
+                            Get.to(LoginView(),
+                                transition: Transition.leftToRight);
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,

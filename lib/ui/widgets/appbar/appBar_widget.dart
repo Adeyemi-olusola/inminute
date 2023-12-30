@@ -25,7 +25,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       centerTitle: true,
-      backgroundColor: riderTheme.scaffoldBackgroundColor,
+      backgroundColor:  isCustomer == null ? lightMode.scaffoldBackgroundColor: riderTheme.scaffoldBackgroundColor,
       elevation: 0,
       automaticallyImplyLeading: showBackButton,
       leading: showBackButton

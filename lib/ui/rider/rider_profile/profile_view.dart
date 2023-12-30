@@ -6,6 +6,9 @@ import 'package:inminutes/ui/customer/screens/setting/setting_view.dart';
 import 'package:inminutes/ui/customer/screens/sign_up/sign_upform_view.dart';
 import 'package:inminutes/ui/customer/screens/sign_up/signup_viewmodel.dart';
 import 'package:inminutes/ui/customer/screens/wishlist/wishlist_view.dart';
+import 'package:inminutes/ui/rider/report/rider_report.dart';
+import 'package:inminutes/ui/rider/rider_account_setting/rider_account_setting_view.dart';
+import 'package:inminutes/ui/rider/rider_payment_setting/rider_payment_setting.dart';
 import 'package:inminutes/utils/themes.dart';
 import 'package:stacked/stacked.dart';
 
@@ -101,17 +104,17 @@ class _RiderProfileViewState extends State<RiderProfileView> {
                                     height: 30,
                                   ),
                                   card(Icons.person_2_outlined,
-                                      'Account Settings', WishlistView()),
+                                      'Account Settings', RiderAccountSettingView()),
                                   SizedBox(
                                     height: 15,
                                   ),
-                                  card(Icons.payment, 'Account Settings',
-                                      AccountSettingView()),
+                                  card(Icons.payment, 'Payment Settings',
+                                      RiderPaymentSettingsView()),
                                   SizedBox(
                                     height: 15,
                                   ),
                                   card(Icons.video_file_outlined, 'Reports',
-                                      SettingView()),
+                                      ReportAccountSettingView()),
                                   SizedBox(
                                     height: 15,
                                   ),

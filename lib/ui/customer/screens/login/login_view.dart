@@ -26,6 +26,7 @@ class _LoginViewState extends State<LoginView> {
           return Scaffold(
             backgroundColor: lightMode.scaffoldBackgroundColor,
             appBar: CustomAppBar(
+             
                 title: '', showBackButton: true, onBackButtonPressed: () {}),
             body: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -38,7 +39,7 @@ class _LoginViewState extends State<LoginView> {
                       'Welcome Back',
                       style: lightMode.textTheme.headlineLarge,
                     ),
-
+              
                     SizedBox(
                       height: 6,
                     ),
@@ -46,7 +47,7 @@ class _LoginViewState extends State<LoginView> {
                       'To access your account input your details',
                       style: lightMode.textTheme.headlineSmall,
                     ),
-
+              
                     SizedBox(
                       height: 20,
                     ),
@@ -63,7 +64,7 @@ class _LoginViewState extends State<LoginView> {
                     SizedBox(
                       height: 40,
                     ),
-
+              
                     MyButton(
                       text: 'Login',
                       onPressed: () {
@@ -104,7 +105,7 @@ class _LoginViewState extends State<LoginView> {
                             ])),
                       ],
                     ),
-
+              
                     // Text('By signing up, you agree to the Terms and Condition of the company')
                   ],
                 ),

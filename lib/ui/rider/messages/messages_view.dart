@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:inminutes/ui/customer/screens/sign_up/signup_viewmodel.dart';
+import 'package:inminutes/ui/rider/messages/message_details_view.dart';
 import 'package:inminutes/ui/widgets/appbar/appBar_widget.dart';
 import 'package:inminutes/utils/themes.dart';
 import 'package:stacked/stacked.dart';
@@ -80,52 +82,65 @@ class _MessagesViewState extends State<MessagesView> {
                   ListView.separated(
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: Color(0xffDEDEDE), width: 1),
-                              borderRadius: BorderRadius.circular(5.5)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Row(
-                              children: [
-                                CircleAvatar(
-                                  radius: 23,
-                                ),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Expanded(
-                                    child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text('David Mike' , style: riderTheme.textTheme.headlineLarge!.copyWith(fontSize: 19),),
-                                        Container(
-                                          color:
-                                              Color.fromARGB(80, 255, 217, 145),
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              'ongoing trip',
-                                              style: lightMode
-                                                  .textTheme.headlineSmall!
-                                                  .copyWith(
-                                                      color: Color(0xffFBA500),
-                                                      fontSize: 8),
-                                            ),
+                        return InkWell(
+                          onTap: () {
+                            Get.to(ChatScreen());
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: Color(0xffDEDEDE), width: 1),
+                                borderRadius: BorderRadius.circular(5.5)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Row(
+                                children: [
+                                  CircleAvatar(
+                                    radius: 23,
+                                  ),
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Expanded(
+                                      child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            'David Mike',
+                                            style: riderTheme
+                                                .textTheme.headlineLarge!
+                                                .copyWith(fontSize: 19),
                                           ),
-                                        )
-                                      ],
-                                    ),
-                                    SizedBox(height: 10),
-                                    Text('David Mike'),
-                                  ],
-                                ))
-                              ],
+                                          Container(
+                                            color: Color.fromARGB(
+                                                80, 255, 217, 145),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Text(
+                                                'ongoing trip',
+                                                style: lightMode
+                                                    .textTheme.headlineSmall!
+                                                    .copyWith(
+                                                        color:
+                                                            Color(0xffFBA500),
+                                                        fontSize: 8),
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(height: 10),
+                                      Text('David Mike'),
+                                    ],
+                                  ))
+                                ],
+                              ),
                             ),
                           ),
                         );
