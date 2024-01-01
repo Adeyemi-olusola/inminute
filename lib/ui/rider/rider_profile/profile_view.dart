@@ -119,7 +119,7 @@ class _RiderProfileViewState extends State<RiderProfileView> {
                                     height: 15,
                                   ),
                                   card(Icons.logout_outlined, 'Log out',
-                                      LoginView()),
+                                      CustomerLoginView()),
                                   SizedBox(
                                     height: 15,
                                   ),

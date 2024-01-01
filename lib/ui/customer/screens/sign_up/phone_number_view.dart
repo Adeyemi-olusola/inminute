@@ -19,6 +19,8 @@ class PhoneNumberView extends StatefulWidget {
 }
 
 class _PhoneNumberViewState extends State<PhoneNumberView> {
+  TextEditingController phoneNumberController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
@@ -54,6 +56,7 @@ class _PhoneNumberViewState extends State<PhoneNumberView> {
                         ),
                         OutlineInput(
                           labelText: 'Phone Number',
+                          controller: phoneNumberController,
                           preffixWidget: Padding(
                             padding: const EdgeInsets.only(left: 10),
                             child: Container(
@@ -82,8 +85,10 @@ class _PhoneNumberViewState extends State<PhoneNumberView> {
                         MyButton(
                           text: 'Sign Up',
                           onPressed: () {
-                            Get.to(OtpView(),
-                                transition: Transition.rightToLeft);
+                            // Get.to(OtpView(),
+                            //     transition: Transition.rightToLeft);
+
+                            SignUpService().getOtp(context, {'recipientPhoneNumber' : phoneNumberController.text});
                           },
                         ),
                         SizedBox(
@@ -140,7 +145,7 @@ class _PhoneNumberViewState extends State<PhoneNumberView> {
                         ),
                         InkWell(
                           onTap: () {
-                            Get.to(LoginView(),
+                            Get.to(CustomerLoginView(),
                                 transition: Transition.leftToRight);
                           },
                           child: Row(

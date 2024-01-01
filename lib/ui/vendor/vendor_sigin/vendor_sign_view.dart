@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:inminutes/ui/rider/nav_bar/rider_navbar_view.dart';
+import 'package:inminutes/ui/vendor/vendor_dashboard/vendor_dashboardview.dart';
 import 'package:inminutes/ui/widgets/button/button.dart';
 import 'package:inminutes/ui/widgets/input/outlineInput.dart';
 import 'package:inminutes/utils/themes.dart';
 
-class RiderSignInView extends StatefulWidget {
+class VendorSignInView extends StatefulWidget {
   @override
-  State<RiderSignInView> createState() => _RiderSignInViewState();
+  State<VendorSignInView> createState() => _VendorSignInViewState();
 }
 
-class _RiderSignInViewState extends State<RiderSignInView> {
+class _VendorSignInViewState extends State<VendorSignInView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,9 +96,10 @@ class _RiderSignInViewState extends State<RiderSignInView> {
                     ),
                     MyButton(
                       text: 'Login',
+                      vendor: true,
                       isCustomer: false,
                       onPressed: () {
-                        Get.to(RiderNavbar(),
+                        Get.to(VendorHomePageView(),
                             transition: Transition.leftToRight);
                       },
                     ),

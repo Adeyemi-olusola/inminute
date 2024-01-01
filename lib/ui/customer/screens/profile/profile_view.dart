@@ -95,7 +95,7 @@ class _ProfileViewState extends State<ProfileView> {
                                   SizedBox(
                                     height: 15,
                                   ),
-                                  card(Icons.logout_outlined, 'Log out', LoginView()),
+                                  card(Icons.logout_outlined, 'Log out', CustomerLoginView()),
                                    SizedBox(
                                     height: 15,
                                   ),

@@ -10,14 +10,14 @@ import 'package:inminutes/ui/widgets/tile/tile_line.dart';
 import 'package:inminutes/utils/themes.dart';
 import 'package:stacked/stacked.dart';
 
-class RiderHomePageView extends StatefulWidget {
-  const RiderHomePageView({super.key});
+class VendorHomePageView extends StatefulWidget {
+  const VendorHomePageView({super.key});
 
   @override
-  State<RiderHomePageView> createState() => _RiderHomePageViewState();
+  State<VendorHomePageView> createState() => _VendorHomePageViewState();
 }
 
-class _RiderHomePageViewState extends State<RiderHomePageView> {
+class _VendorHomePageViewState extends State<VendorHomePageView> {
   List<String> lust = ['ffg', 'gfg'];
   List<String> titleList = [
     'Nearby',
@@ -82,7 +82,7 @@ class _RiderHomePageViewState extends State<RiderHomePageView> {
                       height: 20,
                     ),
                     Container(
-                      color: Colors.black,
+                      color: vendorTheme.primaryColor,
                       child: Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: Column(
@@ -118,25 +118,7 @@ class _RiderHomePageViewState extends State<RiderHomePageView> {
                                       fontWeight: FontWeight.w400,
                                       fontSize: 17),
                             ),
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Oustanding : ',
-                                  style: lightMode.textTheme.headlineSmall,
-                                ),
-                                Text(
-                                  '20,000',
-                                  style: lightMode.textTheme.headlineSmall!
-                                      .copyWith(
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 17),
-                                ),
-                              ],
-                            ),
+                        
                             SizedBox(
                               height: 30,
                             ),
@@ -159,7 +141,7 @@ class _RiderHomePageViewState extends State<RiderHomePageView> {
                                     ),
                                   ],
                                 ),
-                                Row(
+                                Column(
                                   children: [
                                     Container(
                                       height: 25,
@@ -179,7 +161,7 @@ class _RiderHomePageViewState extends State<RiderHomePageView> {
                                       )),
                                     ),
                                     SizedBox(
-                                      width: 20,
+                                      height: 20,
                                     ),
                                     Container(
                                       height: 25,
@@ -199,7 +181,7 @@ class _RiderHomePageViewState extends State<RiderHomePageView> {
                                       )),
                                     ),
                                     SizedBox(
-                                      width: 20,
+                                      height: 20,
                                     ),
                                     Container(
                                       height: 25,

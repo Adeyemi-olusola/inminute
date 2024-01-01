@@ -106,7 +106,7 @@ class _OtpViewState extends State<OtpView> {
                   MyButton(
                       text: 'Verify',
                       onPressed: () {
-                        Get.to(LoginView(), transition: Transition.rightToLeft);
+                        Get.to(CustomerLoginView(), transition: Transition.rightToLeft);
                       }),
 
                   // Text('By signing up, you agree to the Terms and Condition of the company')

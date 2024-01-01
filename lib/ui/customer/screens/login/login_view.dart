@@ -10,14 +10,14 @@ import 'package:inminutes/utils/themes.dart';
 import 'package:stacked/stacked.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class CustomerLoginView extends StatefulWidget {
+  const CustomerLoginView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<CustomerLoginView> createState() => _CustomerLoginViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _CustomerLoginViewState extends State<CustomerLoginView> {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(

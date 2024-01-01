@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:inminutes/ui/customer/screens/login/login_view.dart';
 import 'package:inminutes/ui/customer/screens/onboarding/onboarding_view.dart';
 import 'package:inminutes/ui/customer/screens/sign_up/phone_number_view.dart';
 import 'package:inminutes/ui/rider/sign_in/login_view.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:inminutes/ui/vendor/vendor_sigin/vendor_sign_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginView(),
+      home: PhoneNumberView(),
     );
   }
 }
