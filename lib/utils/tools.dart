@@ -565,12 +565,16 @@ String convertPhoneNumber(String phoneNumber) {
 
   // Check if the cleaned number starts with "080" and replace it with "+234"
   if (cleanedNumber.startsWith('08') && cleanedNumber.length == 11) {
-    return '+234${cleanedNumber.substring(2)}';
+    return '+234${cleanedNumber.substring(1)}';
   }
 
   // If the number starts with "+234", don't change it
   if (cleanedNumber.startsWith('+234') && cleanedNumber.length == 13) {
     return cleanedNumber;
+  }
+
+    if (cleanedNumber.startsWith('234') && cleanedNumber.length == 13) {
+    return '+${cleanedNumber}';
   }
 
   // If the number doesn't match any of the above conditions, return the original number

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:inminutes/ui/customer/screens/login/login_view.dart';
+import 'package:inminutes/ui/customer/screens/sign_up/sign_up_service/sign_up_service.dart';
 import 'package:inminutes/ui/customer/screens/sign_up/signup_viewmodel.dart';
 import 'package:inminutes/ui/widgets/appbar/appBar_widget.dart';
 import 'package:inminutes/ui/widgets/button/button.dart';
@@ -10,7 +11,9 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:stacked/stacked.dart';
 
 class OtpView extends StatefulWidget {
-  const OtpView({super.key});
+  var phone;
+
+  OtpView({super.key, this.phone});
 
   @override
   State<OtpView> createState() => _OtpViewState();
@@ -57,7 +60,8 @@ class _OtpViewState extends State<OtpView> {
                           otp = value;
                         });
                       },
-                      textStyle: lightMode.textTheme.headlineSmall!.copyWith(fontSize: 15),
+                      textStyle: lightMode.textTheme.headlineSmall!
+                          .copyWith(fontSize: 15),
                       onCompleted: (value) {
                         // Called when the user has entered the complete OTP
                         // You can handle OTP verification here
@@ -70,7 +74,7 @@ class _OtpViewState extends State<OtpView> {
                         borderRadius: BorderRadius.circular(5),
                         fieldHeight: 50,
                         fieldWidth: 50,
-                        
+
                         activeFillColor: Colors.red,
                         inactiveFillColor: Colors.white,
                         activeColor: Colors.white,
@@ -106,7 +110,12 @@ class _OtpViewState extends State<OtpView> {
                   MyButton(
                       text: 'Verify',
                       onPressed: () {
-                        Get.to(CustomerLoginView(), transition: Transition.rightToLeft);
+                        SignUpService().verifyOtp(context, {
+                          "recipientPhoneNumber": widget.phone['recipientPhoneNumber'],
+                          "otpCode": otp
+                        });
+
+                      
                       }),
 
                   // Text('By signing up, you agree to the Terms and Condition of the company')

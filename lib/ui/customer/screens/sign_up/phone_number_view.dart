@@ -10,6 +10,8 @@ import 'package:inminutes/ui/widgets/button/button.dart';
 import 'package:inminutes/ui/widgets/input/outlineInput.dart';
 import 'package:inminutes/utils/themes.dart';
 import 'package:stacked/stacked.dart';
+import 'package:inminutes/utils/tools.dart' as tools;
+
 
 class PhoneNumberView extends StatefulWidget {
   const PhoneNumberView({super.key});
@@ -88,7 +90,7 @@ class _PhoneNumberViewState extends State<PhoneNumberView> {
                             // Get.to(OtpView(),
                             //     transition: Transition.rightToLeft);
 
-                            SignUpService().getOtp(context, {'recipientPhoneNumber' : phoneNumberController.text});
+                            SignUpService().getOtp(context, {'recipientPhoneNumber' :   tools.convertPhoneNumber(phoneNumberController.text)});
                           },
                         ),
                         SizedBox(
