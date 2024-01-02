@@ -130,7 +130,7 @@ class HttpRequest {
     // get token
 
     _accessToken = await tools.getFromStore('accessToken');
-    _headers['Authorization'] = 'Bearer $_accessToken';
+    _headers['Authorization'] = 'accessToken $_accessToken';
     print('headers: $_headers');
     // print(_headers);
     // _headers = {

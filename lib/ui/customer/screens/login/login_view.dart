@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:inminutes/ui/customer/screens/login/login_service/login_service.dart';
 import 'package:inminutes/ui/customer/screens/sign_up/otp_view.dart';
 import 'package:inminutes/ui/customer/screens/sign_up/sign_upform_view.dart';
 import 'package:inminutes/ui/customer/screens/sign_up/signup_viewmodel.dart';
@@ -9,6 +10,7 @@ import 'package:inminutes/ui/widgets/input/outlineInput.dart';
 import 'package:inminutes/utils/themes.dart';
 import 'package:stacked/stacked.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:inminutes/utils/tools.dart' as tools;
 
 class CustomerLoginView extends StatefulWidget {
   const CustomerLoginView({super.key});
@@ -18,6 +20,8 @@ class CustomerLoginView extends StatefulWidget {
 }
 
 class _CustomerLoginViewState extends State<CustomerLoginView> {
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
@@ -26,7 +30,6 @@ class _CustomerLoginViewState extends State<CustomerLoginView> {
           return Scaffold(
             backgroundColor: lightMode.scaffoldBackgroundColor,
             appBar: CustomAppBar(
-             
                 title: '', showBackButton: true, onBackButtonPressed: () {}),
             body: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -39,7 +42,7 @@ class _CustomerLoginViewState extends State<CustomerLoginView> {
                       'Welcome Back',
                       style: lightMode.textTheme.headlineLarge,
                     ),
-              
+
                     SizedBox(
                       height: 6,
                     ),
@@ -47,12 +50,13 @@ class _CustomerLoginViewState extends State<CustomerLoginView> {
                       'To access your account input your details',
                       style: lightMode.textTheme.headlineSmall,
                     ),
-              
+
                     SizedBox(
                       height: 20,
                     ),
                     OutlineInput(
                       labelText: 'Phone Number',
+                      controller: phoneController,
                     ),
                     SizedBox(
                       height: 10,
@@ -60,16 +64,20 @@ class _CustomerLoginViewState extends State<CustomerLoginView> {
                     OutlineInput(
                       labelText: 'Password',
                       obscureText: true,
+                      controller: passwordController,
                     ),
                     SizedBox(
                       height: 40,
                     ),
-              
+
                     MyButton(
                       text: 'Login',
                       onPressed: () {
-                        Get.to(SignUpFormView(),
-                            transition: Transition.rightToLeft);
+                        LogInService().login(context, {
+                          "phoneNumber":
+                              tools.convertPhoneNumber(phoneController.text),
+                          "password": passwordController.text
+                        });
                       },
                     ),
                     SizedBox(
@@ -105,7 +113,7 @@ class _CustomerLoginViewState extends State<CustomerLoginView> {
                             ])),
                       ],
                     ),
-              
+
                     // Text('By signing up, you agree to the Terms and Condition of the company')
                   ],
                 ),

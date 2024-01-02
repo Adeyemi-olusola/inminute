@@ -564,7 +564,7 @@ String convertPhoneNumber(String phoneNumber) {
   String cleanedNumber = phoneNumber.replaceAll(RegExp(r'\D'), '');
 
   // Check if the cleaned number starts with "080" and replace it with "+234"
-  if (cleanedNumber.startsWith('08') && cleanedNumber.length == 11) {
+  if (cleanedNumber.startsWith('0') && cleanedNumber.length == 11) {
     return '+234${cleanedNumber.substring(1)}';
   }
 

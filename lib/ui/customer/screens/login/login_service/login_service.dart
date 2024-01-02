@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:inminutes/ui/customer/screens/home/home_view.dart';
 import 'package:inminutes/ui/customer/screens/navbar/navbar.dart';
 import 'package:inminutes/ui/customer/screens/sign_up/otp_view.dart';
 import 'package:inminutes/ui/customer/screens/sign_up/sign_upform_view.dart';
@@ -8,34 +9,14 @@ import 'package:inminutes/ui/widgets/loaders/loaders_widget.dart';
 import 'package:inminutes/utils/network.dart';
 import 'package:inminutes/utils/tools.dart' as tools;
 
-class SignUpService {
-  Future<UserCredential?> signInWithGoogle() async {
-    try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-      if (googleUser == null) return null;
-
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-
-      return await FirebaseAuth.instance.signInWithCredential(credential);
-    } catch (e) {
-      print("Error signing in with Google: $e");
-      return null;
-    }
-  }
-
+class LogInService {
   //get Otp
 
-  getOtp(context, dynamic body) {
+  login(context, dynamic body) {
     // AboutMePage();
     Loaders().showModalLoading(context);
     print(body);
-    HttpRequest('auth/verify/phone-number/send-code',
+    HttpRequest('customers/login',
         context: context,
         body: body,
         shouldPopOnError: false, onSuccess: (_, result) async {
@@ -50,8 +31,9 @@ class SignUpService {
       // tools.putInStore('email', body['email']);
       // tools.putInStore('password', body['password']);
 
-      Get.off(OtpView(phone: body));
+      Get.to(HomePageView(), transition: Transition.rightToLeft);
     }, onFailure: (_, result) {
+
       Get.back();
 
       //debugPrint(result);
@@ -82,7 +64,7 @@ class SignUpService {
 
       Get.off(SignUpFormView());
     }, onFailure: (_, result) {
-       Get.back();
+      // Get.back();
 
       //debugPrint(result);
       return;
@@ -99,7 +81,7 @@ class SignUpService {
         context: context,
         body: body,
         shouldPopOnError: false, onSuccess: (_, result) async {
-       tools.putInStore('accessToken', result['data']['accessToken']);
+      tools.putInStore('accessToken', result['data']['accessToken']);
       // UserData userData = await ProfileViewModel().getUserData(context);
       // ProfileViewModel().UsersData(userData);
       // var state = Provider.of<PropertyState>(context, listen: false);
@@ -112,7 +94,7 @@ class SignUpService {
 
       Get.to(Navbar(), transition: Transition.rightToLeft);
     }, onFailure: (_, result) {
-     Get.back();
+      // Get.back();
 
       //debugPrint(result);
       return;
